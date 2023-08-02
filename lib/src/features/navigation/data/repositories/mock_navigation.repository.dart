@@ -1,3 +1,7 @@
+import 'package:personal_protfolio/src/features/github/presentation/pages/github.page.dart';
+import 'package:personal_protfolio/src/features/linkedin/presentation/pages/linkedin.page.dart';
+import 'package:personal_protfolio/src/features/twitter/presentation/pages/twitter.page.dart';
+
 import '../../../../config/icons.config.dart';
 import '../../../welcome/presentation/pages/welcome.page.dart';
 import '../models/left_navigation_item.dart';
@@ -15,12 +19,12 @@ class MockNavigationRepository implements INavigationRepository {
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.twitter,
           label: 'Twitter',
-          route: '',
+          route: TwitterPage.route,
           isSelected: false),
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.linkedin,
           label: 'LinkedIn',
-          route: '',
+          route: LinkedinPage.route,
           isSelected: false),
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.web,
@@ -30,7 +34,7 @@ class MockNavigationRepository implements INavigationRepository {
       LeftNavigationItem(
           icon: PersonalPortfolioIcons.github,
           label: 'Github',
-          route: '',
+          route: GithubPage.route,
           isSelected: false),
     ];
   }
