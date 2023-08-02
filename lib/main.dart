@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'src/app.dart';
+import 'package:personal_protfolio/src/routes/route_config.dart';
 
 void main() {
   runApp(const Damn());
@@ -11,12 +10,14 @@ class Damn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Product Sans',
       ),
-      home: const Portfolio(),
+      routeInformationProvider: AppRoutes.router.routeInformationProvider,
+      routeInformationParser: AppRoutes.router.routeInformationParser,
+      routerDelegate: AppRoutes.router.routerDelegate,
     );
   }
 }
