@@ -11,8 +11,12 @@ class Damn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Portfolio(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Product Sans',
+      ),
+      home: const Portfolio(),
     );
   }
 }
