@@ -3,18 +3,14 @@ import 'package:personal_protfolio/src/config/keys.config.dart';
 
 class PortfolioMainPage extends StatelessWidget {
   static const String route = '/main';
-
-  const PortfolioMainPage({super.key});
+  final Widget? child;
+  const PortfolioMainPage({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: GlobalKeysConfig.mainScaffold,
-      body: const Center(
-        child: Text(
-          'Main Page!',
-        ),
-      ),
+      body: child,
     );
   }
 }
