@@ -27,11 +27,6 @@ class MockNavigationRepository implements INavigationRepository {
           route: LinkedinPage.route,
           isSelected: false),
       LeftNavigationItem(
-          icon: PersonalPortfolioIcons.web,
-          label: 'Web',
-          route: '',
-          isSelected: false),
-      LeftNavigationItem(
           icon: PersonalPortfolioIcons.github,
           label: 'Github',
           route: GithubPage.route,
