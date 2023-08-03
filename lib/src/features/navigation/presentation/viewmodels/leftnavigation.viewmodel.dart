@@ -1,7 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:personal_protfolio/src/config/colors_config.dart';
 import 'package:personal_protfolio/src/config/keys.config.dart';
 
+import '../../../../shared/providers/shared.riverpod.dart';
 import '../../data/models/left_navigation_item.dart';
 
 class LeftNavigationViewModel extends StateNotifier<List<LeftNavigationItem>> {
@@ -18,6 +20,8 @@ class LeftNavigationViewModel extends StateNotifier<List<LeftNavigationItem>> {
     if (item.route.isNotEmpty) {
       GoRouter.of(GlobalKeysConfig.tabNav.currentContext!).go(item.route);
     }
+    ref.read(pageColorProvider.notifier).state =
+        TheColors.pageColor[item.route]!;
 
     state = [
       for (var element in state)
