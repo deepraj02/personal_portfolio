@@ -17,7 +17,7 @@ class PortfolioMainPage extends StatelessWidget {
         backgroundColor: TheColors.mainBlue,
         body: Stack(
           children: [
-            const PageColor(), // <-- add the PageColor here, at the bottom of the Stack
+            const PageColor(),
             Center(child: child),
             const Align(
               alignment: Alignment.centerLeft,
