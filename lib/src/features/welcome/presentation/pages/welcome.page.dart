@@ -1,94 +1,103 @@
 import 'package:flutter/material.dart';
-import 'package:personal_protfolio/src/config/colors_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:personal_protfolio/src/features/welcome/presentation/widgets/greetings_label.dart';
 
-import '../../../../config/icons.config.dart';
+import '../../../../config/colors_config.dart';
+import '../providers/welcome_page.riverpod.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends ConsumerWidget {
   static const String route = "/welcome";
   const WelcomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    border:
-                        Border.all(color: TheColors.welcomePrimary, width: 8),
-                    shape: BoxShape.circle,
-                    image: const DecorationImage(
-                        image: NetworkImage(
-                            'https://media.licdn.com/dms/image/D4D03AQHbh2a30AWRFw/profile-displayphoto-shrink_800_800/0/1683387084361?e=1696464000&v=beta&t=pjE858N2efGiK4iW_RZuSC3bIumRHtPVejBjvH04DqE'),
-                        fit: BoxFit.cover),
-                  ),
-                ),
-                const SizedBox(width: 40),
-                const Icon(PersonalPortfolioIcons.wave,
-                    size: 90, color: TheColors.welcomeIcon)
-              ]),
-          const Text(
-            "Hello",
-            style: TextStyle(
-                fontSize: 100,
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
-          ),
-          const Text.rich(
-            TextSpan(
-                style: TextStyle(fontSize: 100, color: Colors.white),
-                children: [
-                  TextSpan(text: "I'm "),
-                  TextSpan(
-                      text: 'Deepraj Baidya',
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                ]),
-            textAlign: TextAlign.center,
-          ),
-          const Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+  Widget build(BuildContext context, WidgetRef ref) {
+    var welcomeDataAsync = ref.watch(welcomeProvider);
+
+    return welcomeDataAsync.when(
+      loading: () => const Center(
+          child: CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation(Colors.white),
+      )),
+      error: (error, stackTrace) => const Text('error'),
+      data: (welcomeData) {
+        return Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 40),
-              Column(
+              Row(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Text(
-                    'Flutter & DevOps Engineer @TEXTMI',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 40, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Text(
-                    'Flutter 💙 • DevOps & Cloud ☁️ • OpenSource 🌐 ',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                  Container(
+                    width: 300,
+                    height: 300,
+                    decoration: BoxDecoration(
+                      border:
+                          Border.all(color: TheColors.welcomePrimary, width: 8),
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: NetworkImage(welcomeData.imgPath),
+                          
+                          fit: BoxFit.cover),
                     ),
+                  ),
+                  const SizedBox(width: 40),
+                ],
+              ),
+              const GreetingsLabel(),
+              Text.rich(
+                TextSpan(
+                    style: const TextStyle(fontSize: 100, color: Colors.white),
+                    children: [
+                      const TextSpan(text: "I'm "),
+                      TextSpan(
+                          text: welcomeData.name,
+                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                    ]),
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(width: 20),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        welcomeData.title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 40,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        welcomeData.subTitle,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
