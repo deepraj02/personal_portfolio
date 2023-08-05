@@ -12,5 +12,7 @@ final twitterViewModelProvider = Provider<TwitterPageViewModels>((ref) {
   return TwitterPageViewModels(ref, repository);
 });
 
-
-
+final twitterProvider = FutureProvider((ref) {
+  var twitterVM = ref.read(twitterViewModelProvider);
+  return twitterVM.getTwitterData();
+});
