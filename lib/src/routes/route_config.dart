@@ -7,6 +7,7 @@ import 'package:personal_protfolio/src/features/twitter/presentation/pages/twitt
 import '../features/github/presentation/pages/github.page.dart';
 import '../features/splash/presentation/pages/thesplash.page.dart';
 import '../features/welcome/presentation/pages/welcome.page.dart';
+import '../shared/widgets/error.page.dart';
 
 class AppRoutes {
   static final router = GoRouter(
@@ -46,7 +47,7 @@ class AppRoutes {
           ),
           GoRoute(
             parentNavigatorKey: GlobalKeysConfig.tabNav,
-            path:LinkedinPage.route,
+            path: LinkedinPage.route,
             pageBuilder: (context, state) {
               return const NoTransitionPage(
                 child: LinkedinPage(),
@@ -65,5 +66,10 @@ class AppRoutes {
         ],
       ),
     ],
+    errorBuilder: (context, state) {
+      return ErrorPage(
+        errorMessage: state.error.toString(),
+      );
+    },
   );
 }
