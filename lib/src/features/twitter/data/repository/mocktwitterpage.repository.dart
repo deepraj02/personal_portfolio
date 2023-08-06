@@ -14,7 +14,7 @@ class MockTwitterRepository implements ITwitterPageRepository {
           title: "Follow Me",
           subTitle: "On Twitter",
           handle: "@Deepraj022",
-          url: "",
+          url: "https://twitter.com/Deepraj022",
         );
       },
     );

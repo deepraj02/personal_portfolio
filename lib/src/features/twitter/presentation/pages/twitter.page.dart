@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_protfolio/src/features/twitter/presentation/providers/twitter_page.riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
 
@@ -25,7 +26,7 @@ class TwitterPage extends ConsumerWidget {
             children: [
               Icon(
                 twitterData.icon,
-                size: 50,
+                size: 100,
                 color: TheColors.twitterIcon,
               ),
               Text.rich(
@@ -47,15 +48,11 @@ class TwitterPage extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(width: 20),
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        height: 30,
-                      ),
                       Text(
                         twitterData.subTitle,
                         textAlign: TextAlign.center,
@@ -67,12 +64,31 @@ class TwitterPage extends ConsumerWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      Text(
-                        twitterData.subTitle,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: Container(
+                          color: TheColors.twitterSecondary,
+                          child: GestureDetector(
+                            onTap: () async {
+                              var myTwitterUrl = Uri.parse(twitterData.url);
+                              if (!await launchUrl(myTwitterUrl)) {
+                                throw Exception(
+                                  'Could not launch ',
+                                );
+                              }
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Text(
+                                twitterData.handle,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 30,
+                                  color:Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ],
