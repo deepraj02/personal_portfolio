@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_protfolio/src/features/linkedin/presentation/providers/linkedin_page.riverpod.dart';
+import 'package:personal_protfolio/src/shared/widgets/error.page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
 
@@ -17,16 +19,16 @@ class LinkedinPage extends ConsumerWidget {
         valueColor: AlwaysStoppedAnimation(Colors.white),
       )),
       error: (error, stackTrace) => const Text('error'),
-      data: (twitterData) {
+      data: (linkedinData) {
         return Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                twitterData.icon,
+                linkedinData.icon,
                 size: 100,
-                color: TheColors.twitterIcon,
+                color: TheColors.linkedInIcon,
               ),
               Text.rich(
                 TextSpan(
@@ -34,7 +36,7 @@ class LinkedinPage extends ConsumerWidget {
                     children: [
                       //const TextSpan(text: "I'm "),
                       TextSpan(
-                        text: twitterData.title,
+                        text: linkedinData.title,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
@@ -52,19 +54,25 @@ class LinkedinPage extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
                       const SizedBox(
                         height: 30,
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(30),
                         child: Container(
-                          color: TheColors.twitterSecondary,
+                          color: TheColors.linkedInPrimary,
                           child: GestureDetector(
+                            onTap: () async {
+                              var myLinkedinUrl = Uri.parse(linkedinData.url);
+                              if (!await launchUrl(myLinkedinUrl)) {
+                                const ErrorPage(
+                                    errorMessage: "Could not Launch URL");
+                              }
+                            },
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
                               child: Text(
-                                twitterData.handle,
+                                linkedinData.handle,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 30,

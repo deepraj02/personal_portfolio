@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_protfolio/src/features/twitter/presentation/providers/twitter_page.riverpod.dart';
+import 'package:personal_protfolio/src/shared/widgets/error.page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
@@ -72,8 +73,8 @@ class TwitterPage extends ConsumerWidget {
                             onTap: () async {
                               var myTwitterUrl = Uri.parse(twitterData.url);
                               if (!await launchUrl(myTwitterUrl)) {
-                                throw Exception(
-                                  'Could not launch ',
+                                const ErrorPage(
+                                  errorMessage: "Could not Launch URL",
                                 );
                               }
                             },
@@ -84,7 +85,7 @@ class TwitterPage extends ConsumerWidget {
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 30,
-                                  color:Colors.white,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
