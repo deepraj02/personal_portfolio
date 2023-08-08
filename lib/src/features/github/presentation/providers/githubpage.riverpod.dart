@@ -12,7 +12,7 @@ final twitterViewModelProvider = Provider<GithubPageViewModels>((ref) {
   return GithubPageViewModels(ref: ref, githubRepository: repository);
 });
 
-final githubVMProvider = FutureProvider((ref) {
+final githubProvider = FutureProvider((ref) {
   var githubVM = ref.read(twitterViewModelProvider);
   return githubVM.getGithubPageData();
 });
