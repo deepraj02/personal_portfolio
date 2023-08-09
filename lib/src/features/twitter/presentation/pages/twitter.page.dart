@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/twitter/presentation/providers/twitter_page.riverpod.dart';
-import 'package:personal_protfolio/src/shared/widgets/error.page.dart';
+import '../providers/twitter_page.riverpod.dart';
+import '../../../../shared/widgets/error.page.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../../config/colors_config.dart';
 
 class TwitterPage extends ConsumerWidget {
@@ -29,6 +29,13 @@ class TwitterPage extends ConsumerWidget {
                 twitterData.icon,
                 size: 100,
                 color: TheColors.twitterIcon,
+              ).animate(onPlay: (controller) {
+                controller.repeat(reverse: true);
+              }).scaleXY(
+                begin: .8,
+                end: 1,
+                duration: 1.seconds,
+                curve: Curves.easeIn,
               ),
               Text.rich(
                 TextSpan(
@@ -96,7 +103,17 @@ class TwitterPage extends ConsumerWidget {
                   ),
                 ],
               ),
-            ],
+            ]
+                .animate(
+                  interval: 100.ms,
+                )
+                .slideY(
+                  begin: 1,
+                  end: 0,
+                  duration: 0.5.seconds,
+                  curve: Curves.easeInOut,
+                )
+                .fadeIn(),
           ),
         );
       },

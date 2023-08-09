@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_protfolio/src/features/welcome/presentation/widgets/greetings_label.dart';
 
@@ -38,7 +39,6 @@ class WelcomePage extends ConsumerWidget {
                       shape: BoxShape.circle,
                       image: DecorationImage(
                           image: NetworkImage(welcomeData.imgPath),
-                          
                           fit: BoxFit.cover),
                     ),
                   ),
@@ -94,7 +94,17 @@ class WelcomePage extends ConsumerWidget {
                   ),
                 ],
               ),
-            ],
+            ]
+                .animate(
+                  interval: 100.ms,
+                )
+                .slideY(
+                  begin: 1,
+                  end: 0,
+                  duration: 0.5.seconds,
+                  curve: Curves.easeInOut,
+                )
+                .fadeIn(),
           ),
         );
       },

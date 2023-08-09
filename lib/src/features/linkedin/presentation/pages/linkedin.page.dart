@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_protfolio/src/features/linkedin/presentation/providers/linkedin_page.riverpod.dart';
 import 'package:personal_protfolio/src/shared/widgets/error.page.dart';
@@ -29,6 +30,13 @@ class LinkedinPage extends ConsumerWidget {
                 linkedinData.icon,
                 size: 100,
                 color: TheColors.linkedInIcon,
+              ).animate(onPlay: (controller) {
+                controller.repeat(reverse: true);
+              }).scaleXY(
+                begin: .8,
+                end: 1,
+                duration: 1.seconds,
+                curve: Curves.easeIn,
               ),
               Text.rich(
                 TextSpan(
@@ -87,7 +95,17 @@ class LinkedinPage extends ConsumerWidget {
                   ),
                 ],
               ),
-            ],
+            ]
+                .animate(
+                  interval: 100.ms,
+                )
+                .slideY(
+                  begin: 1,
+                  end: 0,
+                  duration: 0.5.seconds,
+                  curve: Curves.easeInOut,
+                )
+                .fadeIn(),
           ),
         );
       },

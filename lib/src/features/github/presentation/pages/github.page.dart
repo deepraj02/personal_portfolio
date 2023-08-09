@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:personal_protfolio/src/features/github/presentation/providers/githubpage.riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,7 +11,7 @@ class GithubPage extends ConsumerWidget {
   static const String route = '/github';
   const GithubPage({Key? key}) : super(key: key);
 
-@override
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
     var githubDataAsync = ref.watch(githubProvider);
     return githubDataAsync.when(
@@ -29,6 +30,13 @@ class GithubPage extends ConsumerWidget {
                 githubData.icon,
                 size: 100,
                 color: TheColors.githubIcon,
+              ).animate(onPlay: (controller) {
+                controller.repeat(reverse: true);
+              }).scaleXY(
+                begin: .8,
+                end: 1,
+                duration: 1.seconds,
+                curve: Curves.easeIn,
               ),
               Text.rich(
                 TextSpan(
@@ -54,7 +62,6 @@ class GithubPage extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                     
                       const SizedBox(
                         height: 30,
                       ),
@@ -89,7 +96,17 @@ class GithubPage extends ConsumerWidget {
                   ),
                 ],
               ),
-            ],
+            ]
+                .animate(
+                  interval: 100.ms,
+                )
+                .slideY(
+                  begin: 1,
+                  end: 0,
+                  duration: 0.5.seconds,
+                  curve: Curves.easeInOut,
+                )
+                .fadeIn(),
           ),
         );
       },
