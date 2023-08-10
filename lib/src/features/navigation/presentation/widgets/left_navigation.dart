@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../providers/navigation.riverpod.dart';
@@ -31,7 +32,20 @@ class LeftNavigation extends ConsumerWidget {
               item: navItems[index],
             );
           },
-        ),
+        )
+            .animate(
+              interval: 100.ms,
+            )
+            .slideY(
+              begin: 1,
+              end: 0,
+              duration: 0.5.seconds,
+              curve: Curves.easeInOut,
+            )
+            .fadeIn(
+              duration: 0.5.seconds,
+              curve: Curves.easeInOut,
+            ),
       ),
     );
   }
