@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/github/presentation/providers/githubpage.riverpod.dart';
+import '../providers/githubpage.riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
