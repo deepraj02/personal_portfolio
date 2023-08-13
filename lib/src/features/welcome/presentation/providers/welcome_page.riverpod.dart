@@ -1,20 +1,24 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/welcome/data/repositories/mockwelcome.repository.dart';
-import 'package:personal_protfolio/src/features/welcome/presentation/viewmodels/welcome.viewmodels.dart';
-
+import '../viewmodels/welcome.viewmodels.dart';
 import '../../data/repositories/iwelcome.repository.dart';
+import '../../data/repositories/welcome.repository.dart';
 import '../viewmodels/greetings_label.viewmodels.dart';
 
 final welcomeRepositoryProvider = Provider<IWelcomeRepository>(
   (ref) {
-    return MockWelcomeRepository();
+    return WelcomeRepository(ref);
   },
+
+  /// Replace with MockWelcomeRepository to detach the firebase connection.
 );
 
 final welcomeViewModelProvider = Provider<WelcomePageViewModels>(
   (ref) {
     var repository = ref.read(welcomeRepositoryProvider);
-    return WelcomePageViewModels(ref, repository);
+    return WelcomePageViewModels(
+      ref,
+      repository,
+    );
   },
 );
 
