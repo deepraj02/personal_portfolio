@@ -18,7 +18,6 @@ void main() async {
 
 class Damn extends StatelessWidget {
   const Damn({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
