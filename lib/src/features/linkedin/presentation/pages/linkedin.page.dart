@@ -49,6 +49,12 @@ class LinkedinPage extends ConsumerWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      TextSpan(
+                        text: '\n${linkedinData.subTitle}',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ]),
                 textAlign: TextAlign.center,
               ),
