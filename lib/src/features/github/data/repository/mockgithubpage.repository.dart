@@ -13,9 +13,10 @@ class MockGithubRepository implements IGithubPageRepository {
       () {
         return GitHubPageModel(
           icon: PersonalPortfolioIcons.github,
-          heading: "Check Out\nMy Repos",
+          heading: "Check Out",
           subHeading: "On Github",
           url: "https://github.com/deepraj02",
+          title: 'My Repos',
         );
       },
     );

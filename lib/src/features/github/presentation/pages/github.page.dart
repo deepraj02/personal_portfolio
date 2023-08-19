@@ -20,7 +20,8 @@ class GithubPage extends ConsumerWidget {
           child: CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation(Colors.white),
       )),
-      error: (error, stackTrace) => Center(child: SelectableText(stackTrace.toString())),
+      error: (error, stackTrace) =>
+          Center(child: SelectableText(stackTrace.toString())),
       data: (githubData) {
         return Center(
           child: Column(
@@ -45,7 +46,7 @@ class GithubPage extends ConsumerWidget {
                     children: [
                       //const TextSpan(text: "I'm "),
                       TextSpan(
-                        text: githubData.heading,
+                        text: '${githubData.heading}\n${githubData.title}',
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
