@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/navigation/data/repositories/inavigation.repository.dart';
-import 'package:personal_protfolio/src/features/navigation/data/repositories/mock_navigation.repository.dart';
+import '../../data/repositories/inavigation.repository.dart';
+import '../../data/repositories/mock_navigation.repository.dart';
 
 import '../../data/models/left_navigation_item.dart';
 import '../viewmodels/leftnavigation.viewmodel.dart';

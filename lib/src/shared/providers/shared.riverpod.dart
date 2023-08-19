@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/config/colors_config.dart';
+import '../../config/colors_config.dart';
 
 import '../../features/welcome/presentation/pages/welcome.page.dart';
 import '../repositories/database_provider.dart';

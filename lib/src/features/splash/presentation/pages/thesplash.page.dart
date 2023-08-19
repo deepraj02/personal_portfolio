@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:personal_protfolio/src/config/keys.config.dart';
-import 'package:personal_protfolio/src/features/splash/presentation/widgets/loading.widget.dart';
-import 'package:personal_protfolio/src/features/welcome/presentation/pages/welcome.page.dart';
+import '../../../../config/keys.config.dart';
+import '../widgets/loading.widget.dart';
+import '../../../welcome/presentation/pages/welcome.page.dart';
 
 import '../../../../config/colors_config.dart';
 
@@ -21,7 +21,7 @@ class Splash extends StatelessWidget {
     return const Scaffold(
       backgroundColor: TheColors.mainBlue,
       body: SplashLoading(
-        message: "Portfolio Loading!!",
+        message: 'Portfolio Loading!!',
       ),
     );
   }

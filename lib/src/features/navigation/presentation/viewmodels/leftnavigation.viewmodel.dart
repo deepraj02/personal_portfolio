@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:personal_protfolio/src/config/colors_config.dart';
-import 'package:personal_protfolio/src/config/keys.config.dart';
+import '../../../../config/colors_config.dart';
+import '../../../../config/keys.config.dart';
 
 import '../../../../shared/providers/shared.riverpod.dart';
 import '../../data/models/left_navigation_item.dart';

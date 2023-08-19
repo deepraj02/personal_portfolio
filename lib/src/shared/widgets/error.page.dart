@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_protfolio/src/config/colors_config.dart';
+import '../../config/colors_config.dart';
 
 
 class ErrorPage extends StatelessWidget {

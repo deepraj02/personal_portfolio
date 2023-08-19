@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/welcome/data/repositories/iwelcome.repository.dart';
+import '../../data/repositories/iwelcome.repository.dart';
 
 import '../../data/models/welcome_page.model.dart';
 import '../providers/welcome_page.riverpod.dart';

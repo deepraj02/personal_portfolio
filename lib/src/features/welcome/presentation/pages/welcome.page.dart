@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/welcome/presentation/widgets/greetings_label.dart';
+import '../widgets/greetings_label.dart';
 
 import '../../../../config/colors_config.dart';
 import '../providers/welcome_page.riverpod.dart';
 
 class WelcomePage extends ConsumerWidget {
-  static const String route = "/welcome";
+  static const String route = '/welcome';
   const WelcomePage({super.key});
 
   @override

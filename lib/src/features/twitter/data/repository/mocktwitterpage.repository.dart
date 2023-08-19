@@ -1,4 +1,4 @@
-import 'package:personal_protfolio/src/config/icons.config.dart';
+import '../../../../config/icons.config.dart';
 
 import '../models/twitter_page.model.dart';
 import 'itwitterpage.repository.dart';
@@ -11,10 +11,10 @@ class MockTwitterRepository implements ITwitterPageRepository {
       () {
         return TwitterPageModel(
           icon: PersonalPortfolioIcons.twitter,
-          title: "Follow Me",
-          subTitle: "On Twitter",
-          handle: "@Deepraj022",
-          url: "https://twitter.com/Deepraj022",
+          title: 'Follow Me',
+          subTitle: 'On Twitter',
+          handle: '@Deepraj022',
+          url: 'https://twitter.com/Deepraj022',
         );
       },
     );

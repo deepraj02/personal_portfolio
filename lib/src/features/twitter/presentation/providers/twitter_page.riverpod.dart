@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/twitter/presentation/viewmodels/twitter.viewmodels.dart';
+import '../viewmodels/twitter.viewmodels.dart';
 import '../../data/repository/itwitterpage.repository.dart';
 import '../../data/repository/twitterpage.repository.dart';
 

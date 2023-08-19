@@ -11,8 +11,8 @@ class MockLinkedinRepository implements ILinkedinPageRepository {
         return LinkedinPageModel(
           icon: PersonalPortfolioIcons.linkedin,
           title: "Let's",
-          handle: "On Linkedin",
-          url: "https://linkedin.co/in/deeprajbaidya",
+          handle: 'On Linkedin',
+          url: 'https://linkedin.co/in/deeprajbaidya',
           subTitle: 'Connect',
         );
       },

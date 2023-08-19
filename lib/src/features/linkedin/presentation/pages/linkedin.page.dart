@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/src/features/linkedin/presentation/providers/linkedin_page.riverpod.dart';
-import 'package:personal_protfolio/src/shared/widgets/error.page.dart';
+import '../providers/linkedin_page.riverpod.dart';
+import '../../../../shared/widgets/error.page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
@@ -80,7 +80,7 @@ class LinkedinPage extends ConsumerWidget {
                               var myLinkedinUrl = Uri.parse(linkedinData.url);
                               if (!await launchUrl(myLinkedinUrl)) {
                                 const ErrorPage(
-                                    errorMessage: "Could not Launch URL");
+                                    errorMessage: 'Could not Launch URL');
                               }
                             },
                             child: Padding(

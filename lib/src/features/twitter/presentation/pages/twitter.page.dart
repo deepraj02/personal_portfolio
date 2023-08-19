@@ -81,7 +81,7 @@ class TwitterPage extends ConsumerWidget {
                               var myTwitterUrl = Uri.parse(twitterData.url);
                               if (!await launchUrl(myTwitterUrl)) {
                                 const ErrorPage(
-                                  errorMessage: "Could not Launch URL",
+                                  errorMessage: 'Could not Launch URL',
                                 );
                               }
                             },

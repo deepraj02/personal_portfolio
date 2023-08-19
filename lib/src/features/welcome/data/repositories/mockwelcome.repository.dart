@@ -14,10 +14,10 @@ class MockWelcomeRepository implements IWelcomeRepository {
           imgPath:
               'https://media.licdn.com/dms/image/D4D03AQHbh2a30AWRFw/profile-displayphoto-shrink_800_800/0/1683387084361?e=1696464000&v=beta&t=pjE858N2efGiK4iW_RZuSC3bIumRHtPVejBjvH04DqE',
           greetings: [
-            "hello",
-            "hola",
-            "bonjour",
-            "ciao",
+            'hello',
+            'hola',
+            'bonjour',
+            'ciao',
           ],
         );
       },

@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:personal_protfolio/helpers/enums.dart';
-import 'package:personal_protfolio/src/features/welcome/data/models/welcome_page.model.dart';
-import 'package:personal_protfolio/src/features/welcome/data/repositories/iwelcome.repository.dart';
-import 'package:personal_protfolio/src/shared/providers/shared.riverpod.dart';
+import '../../../../../helpers/enums.dart';
+import '../models/welcome_page.model.dart';
+import 'iwelcome.repository.dart';
+import '../../../../shared/providers/shared.riverpod.dart';
 
 class WelcomeRepository implements IWelcomeRepository {
   final Ref ref;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_protfolio/src/config/icons.config.dart';
+import '../../../../config/icons.config.dart';
 
 class TwitterPageModel {
   final IconData icon;

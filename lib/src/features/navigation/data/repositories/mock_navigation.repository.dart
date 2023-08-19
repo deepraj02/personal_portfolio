@@ -1,6 +1,6 @@
-import 'package:personal_protfolio/src/features/github/presentation/pages/github.page.dart';
-import 'package:personal_protfolio/src/features/linkedin/presentation/pages/linkedin.page.dart';
-import 'package:personal_protfolio/src/features/twitter/presentation/pages/twitter.page.dart';
+import '../../../github/presentation/pages/github.page.dart';
+import '../../../linkedin/presentation/pages/linkedin.page.dart';
+import '../../../twitter/presentation/pages/twitter.page.dart';
 
 import '../../../../config/icons.config.dart';
 import '../../../welcome/presentation/pages/welcome.page.dart';

@@ -76,7 +76,7 @@ class GithubPage extends ConsumerWidget {
                               var myGithubUrl = Uri.parse(githubData.url);
                               if (!await launchUrl(myGithubUrl)) {
                                 const ErrorPage(
-                                  errorMessage: "Could not Launch URL",
+                                  errorMessage: 'Could not Launch URL',
                                 );
                               }
                             },

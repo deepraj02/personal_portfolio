@@ -1,5 +1,5 @@
-import 'package:personal_protfolio/src/config/icons.config.dart';
-import 'package:personal_protfolio/src/features/github/data/model/githubpage.models.dart';
+import '../../../../config/icons.config.dart';
+import '../model/githubpage.models.dart';
 
 import 'igithubpage.repository.dart';
 
@@ -13,9 +13,9 @@ class MockGithubRepository implements IGithubPageRepository {
       () {
         return GitHubPageModel(
           icon: PersonalPortfolioIcons.github,
-          heading: "Check Out",
-          subHeading: "On Github",
-          url: "https://github.com/deepraj02",
+          heading: 'Check Out',
+          subHeading: 'On Github',
+          url: 'https://github.com/deepraj02',
           title: 'My Repos',
         );
       },
