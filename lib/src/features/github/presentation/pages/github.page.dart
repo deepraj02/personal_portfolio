@@ -14,12 +14,13 @@ class GithubPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var githubDataAsync = ref.watch(githubProvider);
+
     return githubDataAsync.when(
       loading: () => const Center(
           child: CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation(Colors.white),
       )),
-      error: (error, stackTrace) => const Text('error'),
+      error: (error, stackTrace) => Center(child: SelectableText(stackTrace.toString())),
       data: (githubData) {
         return Center(
           child: Column(

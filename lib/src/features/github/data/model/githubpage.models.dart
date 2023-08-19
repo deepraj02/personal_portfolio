@@ -15,7 +15,7 @@ class GitHubPageModel {
   });
   factory GitHubPageModel.fromDatabase(Map<String, dynamic> doc) {
     return GitHubPageModel(
-      icon: PersonalPortfolioIcons.iconMap[doc['github']]!,
+      icon: PersonalPortfolioIcons.iconMap[doc['icon']]!,
       url: doc['url'],
       heading: doc['heading'],
       subHeading: doc['subHeading'],
