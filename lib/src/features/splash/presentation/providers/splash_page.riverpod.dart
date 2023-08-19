@@ -6,3 +6,7 @@ final splashPageProvider = Provider((ref) {
   return SplashPageViewModel(ref);
 });
 
+final splashPageFutureProvider = FutureProvider<bool>((ref) async {
+  var splashVM = ref.read(splashPageProvider);
+  return splashVM.preloadPages();
+});
