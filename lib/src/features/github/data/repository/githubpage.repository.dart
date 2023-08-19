@@ -14,7 +14,7 @@ class GithubRepository implements IGithubPageRepository {
     return ref.read(dbProvider).getPageDataFromDB(
           GitHubPageModel.fromDatabase,
           DatabaseCollections.pageContent.name,
-          DatabaseDocs.githubPage.name ,
+          DatabaseDocs.githubPage.name,
         );
   }
 }
