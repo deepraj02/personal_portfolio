@@ -16,6 +16,6 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 # TODOS
-- [] Twitter Page Data (from firebase)
-- [] Linkedin Page Data (from firebase)
-- [] Github Page Data (from firebase)
+- [x] Twitter Page Data (from firebase)
+- [x] Linkedin Page Data (from firebase)
+- [x] Github Page Data (from firebase)
