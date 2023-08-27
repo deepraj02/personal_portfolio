@@ -6,3 +6,9 @@ enum DatabaseDocs {
   linkedInPage,
   githubPage,
 }
+
+enum DeviceType {
+  mobile,
+  tablet,
+  desktop,
+}
