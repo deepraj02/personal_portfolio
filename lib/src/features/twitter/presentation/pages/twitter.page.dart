@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../../helpers/responsive_ui_helper.dart';
+import '../../../../shared/widgets/error_widget.dart';
 import '../providers/twitter_page.riverpod.dart';
 import '../../../../shared/widgets/error.page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../config/colors_config.dart';
+import '../responsive/twitterpage.responsive.dart';
 
 class TwitterPage extends ConsumerWidget {
   static const String route = '/twitter';
@@ -12,13 +15,17 @@ class TwitterPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final uiConfig = TwitterPageResponsiveConfig
+        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
+
     var twitterDataAsync = ref.watch(twitterProvider);
     return twitterDataAsync.when(
       loading: () => const Center(
           child: CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation(Colors.white),
       )),
-      error: (error, stackTrace) => const Text('error'),
+      error: (error, stackTrace) =>
+          ErrorNotification(message: error.toString()),
       data: (twitterData) {
         return Center(
           child: Column(
@@ -27,7 +34,7 @@ class TwitterPage extends ConsumerWidget {
             children: [
               Icon(
                 twitterData.icon,
-                size: 100,
+                size: uiConfig.iconSize,
                 color: TheColors.twitterIcon,
               ).animate(onPlay: (controller) {
                 controller.repeat(reverse: true);
@@ -39,7 +46,10 @@ class TwitterPage extends ConsumerWidget {
               ),
               Text.rich(
                 TextSpan(
-                    style: const TextStyle(fontSize: 100, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: uiConfig.titleSize,
+                      color: Colors.white,
+                    ),
                     children: [
                       //const TextSpan(text: "I'm "),
                       TextSpan(
@@ -64,8 +74,8 @@ class TwitterPage extends ConsumerWidget {
                       Text(
                         twitterData.subTitle,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 40,
+                        style: TextStyle(
+                          fontSize: uiConfig.titleSize,
                           color: TheColors.twitterPrimary,
                         ),
                       ),
@@ -90,8 +100,8 @@ class TwitterPage extends ConsumerWidget {
                               child: Text(
                                 twitterData.handle,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 30,
+                                style: TextStyle(
+                                  fontSize: uiConfig.buttonLabelSize,
                                   color: Colors.white,
                                 ),
                               ),
