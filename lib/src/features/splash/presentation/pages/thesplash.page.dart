@@ -18,7 +18,7 @@ class Splash extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var splashFuture = ref.watch(splashPageFutureProvider);
     var loadingMessage = const SplashLoading(
-        message: 'Loading an awesome,\nKick-ass Profile...');
+        message: 'Hello There \n Wait a Sec..');
 
     return Scaffold(
         backgroundColor: TheColors.mainBlue,
