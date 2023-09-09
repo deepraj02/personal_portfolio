@@ -75,8 +75,8 @@ class TwitterPage extends ConsumerWidget {
                         twitterData.subTitle,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: uiConfig.titleSize,
-                          color: TheColors.twitterPrimary,
+                          fontSize: uiConfig.subtitleSize,
+                          color: const Color.fromARGB(255, 244, 246, 248),
                         ),
                       ),
                       const SizedBox(
