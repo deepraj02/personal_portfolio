@@ -1,6 +1,6 @@
 # personal_protfolio
 
-A new Flutter project.
+A personal portfolio using Flutter Web + Local Caching + Firebase Hosting + Animations + Responsive Designs
 
 ## Getting Started
 
