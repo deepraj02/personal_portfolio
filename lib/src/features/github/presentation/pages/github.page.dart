@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../shared/widgets/error_widget.dart';
 import '../providers/githubpage.riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -21,7 +22,7 @@ class GithubPage extends ConsumerWidget {
         valueColor: AlwaysStoppedAnimation(Colors.white),
       )),
       error: (error, stackTrace) =>
-          Center(child: SelectableText(stackTrace.toString())),
+          ErrorNotification(message: error.toString()),
       data: (githubData) {
         return Center(
           child: Column(
