@@ -96,7 +96,7 @@ class TwitterPage extends ConsumerWidget {
                               }
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(20.0),
+                              padding:uiConfig.buttonPadding,
                               child: Text(
                                 twitterData.handle,
                                 textAlign: TextAlign.center,
