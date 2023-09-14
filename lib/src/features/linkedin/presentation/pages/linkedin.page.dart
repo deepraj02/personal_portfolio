@@ -34,7 +34,7 @@ class LinkedinPage extends ConsumerWidget {
             children: [
               Icon(
                 linkedinData.icon,
-                size: 100,
+                size: uiConfig.iconSize,
                 color: TheColors.linkedInIcon,
               ).animate(onPlay: (controller) {
                 controller.repeat(reverse: true);
@@ -46,7 +46,8 @@ class LinkedinPage extends ConsumerWidget {
               ),
               Text.rich(
                 TextSpan(
-                    style: const TextStyle(fontSize: 100, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: uiConfig.titleSize, color: Colors.white),
                     children: [
                       //const TextSpan(text: "I'm "),
                       TextSpan(
@@ -90,12 +91,12 @@ class LinkedinPage extends ConsumerWidget {
                               }
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(20.0),
+                              padding: uiConfig.buttonPadding,
                               child: Text(
                                 linkedinData.handle,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 30,
+                                style: TextStyle(
+                                  fontSize: uiConfig.subtitleSize,
                                   color: Colors.white,
                                 ),
                               ),
