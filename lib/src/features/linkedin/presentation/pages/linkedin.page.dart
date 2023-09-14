@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../../helpers/responsive_ui_helper.dart';
+import '../../../../shared/widgets/error_widget.dart';
 import '../providers/linkedin_page.riverpod.dart';
 import '../../../../shared/widgets/error.page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
+import '../responsive/linkedinpage.responsive.dart';
 
 class LinkedinPage extends ConsumerWidget {
   static const String route = '/linkedin';
@@ -13,13 +16,16 @@ class LinkedinPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final uiConfig = LinkedinPageResponsiveConfig
+        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
     var linkedinDataAsync = ref.watch(linkedinProvider);
     return linkedinDataAsync.when(
       loading: () => const Center(
           child: CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation(Colors.white),
       )),
-      error: (error, stackTrace) => const Text('error'),
+      error: (error, stackTrace) =>
+          ErrorNotification(message: error.toString()),
       data: (linkedinData) {
         return Center(
           child: Column(
