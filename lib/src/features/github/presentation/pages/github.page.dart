@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../../helpers/responsive_ui_helper.dart';
 import '../../../../shared/widgets/error_widget.dart';
 import '../providers/githubpage.riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../config/colors_config.dart';
 import '../../../../shared/widgets/error.page.dart';
+import '../responsive/githubpage.responsive.dart';
 
 class GithubPage extends ConsumerWidget {
   static const String route = '/github';
@@ -15,6 +17,8 @@ class GithubPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var githubDataAsync = ref.watch(githubProvider);
+    final uiConfig = GithubPageResponsiveConfig
+        .responsiveUI[ResponsiveUIHelper.getDeviceType(context)]!;
 
     return githubDataAsync.when(
       loading: () => const Center(
@@ -31,7 +35,7 @@ class GithubPage extends ConsumerWidget {
             children: [
               Icon(
                 githubData.icon,
-                size: 100,
+                size: uiConfig.iconSize,
                 color: TheColors.githubIcon,
               ).animate(onPlay: (controller) {
                 controller.repeat(reverse: true);
@@ -43,9 +47,11 @@ class GithubPage extends ConsumerWidget {
               ),
               Text.rich(
                 TextSpan(
-                    style: const TextStyle(fontSize: 100, color: Colors.white),
+                    style: TextStyle(
+                      fontSize: uiConfig.titleSize,
+                      color: Colors.white,
+                    ),
                     children: [
-                      //const TextSpan(text: "I'm "),
                       TextSpan(
                         text: '${githubData.heading}\n${githubData.title}',
                         style: const TextStyle(
@@ -82,12 +88,12 @@ class GithubPage extends ConsumerWidget {
                               }
                             },
                             child: Padding(
-                              padding: const EdgeInsets.all(20.0),
+                              padding: uiConfig.buttonPadding,
                               child: Text(
                                 githubData.subHeading,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 30,
+                                style: TextStyle(
+                                  fontSize: uiConfig.subtitleSize,
                                   color: Colors.white,
                                 ),
                               ),
